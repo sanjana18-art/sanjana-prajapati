@@ -13,9 +13,9 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    .pdf-container {
-      height: 100vh;
+    .pdf-viewer {
       width: 100%;
+      height: 100vh;
       border: none;
     }
 
@@ -27,39 +27,32 @@
       border-radius: 30px;
     }
 
-    .mobile-fallback {
-      display: none;
-      padding: 30px;
+    .fallback-message {
+      padding: 2rem;
       text-align: center;
-      margin-top:7rem;
-    }
-
-    @media (max-width: 768px) {
-      .pdf-container {
-        display: none;
-      }
-
-      .mobile-fallback {
-        display: block;
-      }
     }
   </style>
 </head>
 <body>
 
   <!-- Download Button -->
-  <a href="Sanjana_Prajapati_Resume.pdf" download class="btn btn-success download-btn mt-2">
+  <a href="https://sanjana18-art.github.io/sanjana-prajapati/Sanjana_Prajapati_Resume.pdf" download class="btn btn-success download-btn">
      ⬇️ Download Resume
   </a>
 
-  <!-- Embedded PDF for desktop -->
-  <iframe src="Sanjana_Prajapati_Resume.pdf" class="pdf-container"></iframe>
+  <!-- Google Docs PDF Viewer -->
+  <iframe class="pdf-viewer"
+    src="https://docs.google.com/gview?url=https://sanjana18-art.github.io/sanjana-prajapati/Sanjana_Prajapati_Resume.pdf&embedded=true"
+    onerror="document.getElementById('fallback').style.display='block'; this.style.display='none';">
+  </iframe>
 
-  <!-- Mobile fallback -->
-  <div class="mobile-fallback mt-5">
-    <h5>Your browser doesn't support embedded PDFs</h5>
-    <p> 
-       ⬇ Download Resume To View
+  <!-- Fallback for unsupported browsers -->
+  <div id="fallback" class="fallback-message" style="display: none;">
+    <h5>Unable to load PDF preview</h5>
+    <p>
+      <a href="https://sanjana18-art.github.io/sanjana-prajapati/Sanjana_Prajapati_Resume.pdf" class="btn btn-outline-primary">
+        View / Download Resume
+      </a>
     </p>
   </div>
 
